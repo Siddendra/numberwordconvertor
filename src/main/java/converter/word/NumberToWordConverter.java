@@ -93,7 +93,7 @@ public class NumberToWordConverter {
             logger.info("The Given number is :" + n);
             logger.info(NumberFormat.getInstance().format(n) + "='" + convert_to_words(n) + "'");
         } catch (InputMismatchException e) {
-            logger.error("Exception : " + e +". \n Please enter the valid number" );
+            logger.error("Exception : " + e + ". \n Please enter the valid number");
         }
     }
 
