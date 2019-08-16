@@ -3,6 +3,7 @@ package converter.word;
 import org.apache.log4j.Logger;
 
 import java.text.NumberFormat;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static converter.word.constant.NumberToWordConstant.*;
@@ -84,12 +85,16 @@ public class NumberToWordConverter {
      * @param args
      */
     public static void main(String args[]) {
-        int n;
+        int n = 0;
         Scanner scanner = new Scanner(System.in);
         logger.info("Enter the Number to convert into Word format :");
-        n = scanner.nextInt();
-        logger.info("The Given number is :" + n);
-        logger.info(NumberFormat.getInstance().format(n) + "='" + convert_to_words(n) + "'");
+        try {
+            n = scanner.nextInt();
+            logger.info("The Given number is :" + n);
+            logger.info(NumberFormat.getInstance().format(n) + "='" + convert_to_words(n) + "'");
+        } catch (InputMismatchException e) {
+            logger.error("Exception : " + e +". \n Please enter the valid number" );
+        }
     }
 
 }
