@@ -94,6 +94,10 @@ public class NumberToWordConverter {
             logger.info(NumberFormat.getInstance().format(n) + "='" + convert_to_words(n) + "'");
         } catch (InputMismatchException e) {
             logger.error("Exception : " + e + ". \n Please enter the valid number");
+        } finally {
+            if(scanner!=null) {
+                scanner.close();
+            }
         }
     }
 
